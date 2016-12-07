@@ -1,0 +1,13 @@
+C:\Users\pitekBiceps\Documents\Visual Studio 2015\Projects\kolkokrzyzyk\kolkokrzyzyk\bin\Release\kolkokrzyzyk.exe.config
+C:\Users\pitekBiceps\Documents\Visual Studio 2015\Projects\kolkokrzyzyk\kolkokrzyzyk\bin\Release\kolkokrzyzyk.exe.manifest
+C:\Users\pitekBiceps\Documents\Visual Studio 2015\Projects\kolkokrzyzyk\kolkokrzyzyk\bin\Release\kolkokrzyzyk.application
+C:\Users\pitekBiceps\Documents\Visual Studio 2015\Projects\kolkokrzyzyk\kolkokrzyzyk\bin\Release\kolkokrzyzyk.exe
+C:\Users\pitekBiceps\Documents\Visual Studio 2015\Projects\kolkokrzyzyk\kolkokrzyzyk\bin\Release\kolkokrzyzyk.pdb
+C:\Users\pitekBiceps\Documents\Visual Studio 2015\Projects\kolkokrzyzyk\kolkokrzyzyk\obj\Release\kolkokrzyzyk.Form1.resources
+C:\Users\pitekBiceps\Documents\Visual Studio 2015\Projects\kolkokrzyzyk\kolkokrzyzyk\obj\Release\kolkokrzyzyk.Form2.resources
+C:\Users\pitekBiceps\Documents\Visual Studio 2015\Projects\kolkokrzyzyk\kolkokrzyzyk\obj\Release\kolkokrzyzyk.Properties.Resources.resources
+C:\Users\pitekBiceps\Documents\Visual Studio 2015\Projects\kolkokrzyzyk\kolkokrzyzyk\obj\Release\kolkokrzyzyk.csproj.GenerateResource.Cache
+C:\Users\pitekBiceps\Documents\Visual Studio 2015\Projects\kolkokrzyzyk\kolkokrzyzyk\obj\Release\kolkokrzyzyk.exe.manifest
+C:\Users\pitekBiceps\Documents\Visual Studio 2015\Projects\kolkokrzyzyk\kolkokrzyzyk\obj\Release\kolkokrzyzyk.application
+C:\Users\pitekBiceps\Documents\Visual Studio 2015\Projects\kolkokrzyzyk\kolkokrzyzyk\obj\Release\kolkokrzyzyk.exe
+C:\Users\pitekBiceps\Documents\Visual Studio 2015\Projects\kolkokrzyzyk\kolkokrzyzyk\obj\Release\kolkokrzyzyk.pdb
