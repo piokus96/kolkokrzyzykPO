@@ -42,14 +42,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="kolkokrzyzyk.exe" size="23024">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="kolkokrzyzyk.exe" size="145392">
       <assemblyIdentity name="kolkokrzyzyk" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>2pYbilqnwOmV1G9PBodJMII5SEt05H3rFQwHkxPVCEY=</dsig:DigestValue>
+        <dsig:DigestValue>ifQhXUevnG9eAn0RADFV0ZEA1e99K0QN4cH1pBY5A+A=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

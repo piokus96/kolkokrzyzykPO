@@ -12,7 +12,11 @@ namespace kolkokrzyzyk
 {
     public partial class Form1 : Form
     {
-        bool ruch = true; // kiedy true, ruch pierwszego ( X ) ;; kiedy false drugiego ( O )
+        System.Media.SoundPlayer buttonsound = new System.Media.SoundPlayer();
+        System.Media.SoundPlayer owacja = new System.Media.SoundPlayer();
+        System.Media.SoundPlayer boo = new System.Media.SoundPlayer();              // odtwarzacze dźwięku
+        System.Media.SoundPlayer remis = new System.Media.SoundPlayer();
+        bool ruch = true;               // kiedy true, ruch pierwszego ( X ) ;; kiedy false drugiego ( O )
         int zliczRuchy = 0;
         public static bool nakomputer = false;
         static String gracz1, gracz2;
@@ -20,6 +24,10 @@ namespace kolkokrzyzyk
         public Form1()  // inicjacja formy pierwszej
         {
             InitializeComponent();
+            buttonsound.SoundLocation = "Button.wav";
+            owacja.SoundLocation = "owacja.wav";
+            boo.SoundLocation = "boo.wav";
+            remis.SoundLocation = "remis.wav";
         }
 
         public static void podajImieGracza(string g1, string g2) // przypisanie nazw graczom
@@ -33,7 +41,6 @@ namespace kolkokrzyzyk
             f2.ShowDialog();
             winX.Text = gracz1;
             winO.Text = gracz2;
-
         }
 
         private void oAplikacjiToolStripMenuItem_Click(object sender, EventArgs e)  // opcja "O aplikacji" w zakładce "Pomoc"
@@ -52,8 +59,8 @@ namespace kolkokrzyzyk
             if (ruch)                   // tworzenie zmiennej "ruch" która decyduje czy ruch jest X lub O;
             b.Text = "X";
             else
-                b.Text = "O";   
-
+                b.Text = "O";
+            buttonsound.Play();
             ruch = !ruch;
             b.Enabled = false;          // jednorazowa możliwość wciśnięcia przycisku na planszy
             zliczRuchy++;               // zliczanie ruchów
@@ -253,10 +260,20 @@ namespace kolkokrzyzyk
                 {
                     winner = gracz1;
                     X_licznik.Text = (int.Parse(X_licznik.Text) + 1).ToString();        // zwiekszenie licznika po zwycięstwie gracz 1
-                } 
-                MessageBox.Show("Wygrywa " + winner, "Gratulacje!");  // komunikat po wygranej
-
+                }
+                if (winner != "Komputer")
+                {
+                    owacja.Play();
+                    MessageBox.Show("Wygrywa " + winner + "!", "Gratulacje!");      // komunikat po wygranej
+                }
+                else
+                {
+                    boo.Play();
+                    MessageBox.Show( winner + " zwyciężył. Spróbuj jeszcze raz!", "Porażka!");   // komunikat po wygranej komputera
+                }
+                  
                 
+
                 ruch = true;            // zawartość funkcji nowaGraToolStripMenuItem_Click() , resetuje plansze po zwycięstwie
                 zliczRuchy = 0;
 
@@ -277,6 +294,7 @@ namespace kolkokrzyzyk
             {
                 if (zliczRuchy == 9)
                 {
+                    remis.Play();
                     MessageBox.Show("REMIS!", "Remis");
                     remis_licznik.Text = (int.Parse(remis_licznik.Text) + 1).ToString();        // zwiększa licznik remisów przy zapełnionej pełnej planszy
 
@@ -357,6 +375,11 @@ namespace kolkokrzyzyk
         }
 
         private void X_licznik_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void fileToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
         }

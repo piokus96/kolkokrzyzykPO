@@ -58,13 +58,24 @@ namespace kolkokrzyzyk
         }
 
         private void button2_Click(object sender, EventArgs e)          // po kliknięciu przycisku "Gra przeciwko SI"
-        {                                                               // nadaje imię "komputer" graczowi2 czym uruchamia grę przeciw komputerowi
-            g2.Text = "Komputer";
-            Form1.podajImieGracza(g1.Text, g2.Text);                    // zczytuje oba imiona aby je wyświetlić w oknie gry
-            this.Close();                                               // zamyka pierwsze okno
+        {                                                               
+            if (g1.Text != "")
+            {
+                g2.Text = "Komputer";                                       // nadaje imię "komputer" graczowi2 czym uruchamia grę przeciw komputerowi
+                Form1.podajImieGracza(g1.Text, g2.Text);                    // zczytuje oba imiona aby je wyświetlić w oknie gry
+                this.Close();                                               // zamyka pierwsze okno
+            }
+            else
+                MessageBox.Show("Należy podać imię pierwszego gracza!", "Błąd");
+
         }
 
         private void g1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Form2_Load(object sender, EventArgs e)
         {
 
         }

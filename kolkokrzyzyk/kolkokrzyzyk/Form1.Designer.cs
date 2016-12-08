@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.nowaGraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -55,6 +56,7 @@
             // 
             // menuStrip1
             // 
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.helpToolStripMenuItem});
@@ -66,6 +68,7 @@
             // 
             // fileToolStripMenuItem
             // 
+            this.fileToolStripMenuItem.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.nowaGraToolStripMenuItem,
             this.resetLicznikówToolStripMenuItem,
@@ -73,6 +76,7 @@
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
             this.fileToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
             this.fileToolStripMenuItem.Text = "Plik";
+            this.fileToolStripMenuItem.Click += new System.EventHandler(this.fileToolStripMenuItem_Click);
             // 
             // nowaGraToolStripMenuItem
             // 
@@ -112,12 +116,13 @@
             // 
             // A1
             // 
+            this.A1.BackColor = System.Drawing.SystemColors.Control;
             this.A1.Font = new System.Drawing.Font("Verdana", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.A1.Location = new System.Drawing.Point(12, 37);
             this.A1.Name = "A1";
             this.A1.Size = new System.Drawing.Size(50, 50);
             this.A1.TabIndex = 2;
-            this.A1.UseVisualStyleBackColor = true;
+            this.A1.UseVisualStyleBackColor = false;
             this.A1.Click += new System.EventHandler(this.button_click);
             this.A1.MouseEnter += new System.EventHandler(this.button_enter);
             this.A1.MouseLeave += new System.EventHandler(this.button_leave);
@@ -221,6 +226,7 @@
             // winX
             // 
             this.winX.AutoSize = true;
+            this.winX.BackColor = System.Drawing.Color.Green;
             this.winX.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.winX.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.winX.Location = new System.Drawing.Point(9, 250);
@@ -236,6 +242,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Yellow;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label2.Location = new System.Drawing.Point(169, 279);
             this.label2.Name = "label2";
@@ -246,6 +253,7 @@
             // winO
             // 
             this.winO.AutoSize = true;
+            this.winO.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.winO.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.winO.Location = new System.Drawing.Point(169, 250);
             this.winO.MaximumSize = new System.Drawing.Size(74, 13);
@@ -259,6 +267,7 @@
             // X_licznik
             // 
             this.X_licznik.AutoSize = true;
+            this.X_licznik.BackColor = System.Drawing.Color.Green;
             this.X_licznik.Location = new System.Drawing.Point(37, 263);
             this.X_licznik.Name = "X_licznik";
             this.X_licznik.Size = new System.Drawing.Size(13, 13);
@@ -269,6 +278,7 @@
             // O_licznik
             // 
             this.O_licznik.AutoSize = true;
+            this.O_licznik.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
             this.O_licznik.Location = new System.Drawing.Point(197, 263);
             this.O_licznik.Name = "O_licznik";
             this.O_licznik.Size = new System.Drawing.Size(13, 13);
@@ -278,6 +288,7 @@
             // remis_licznik
             // 
             this.remis_licznik.AutoSize = true;
+            this.remis_licznik.BackColor = System.Drawing.Color.Yellow;
             this.remis_licznik.Location = new System.Drawing.Point(223, 279);
             this.remis_licznik.Name = "remis_licznik";
             this.remis_licznik.Size = new System.Drawing.Size(13, 13);
@@ -288,6 +299,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(248, 301);
             this.Controls.Add(this.remis_licznik);
             this.Controls.Add(this.O_licznik);
@@ -305,12 +317,12 @@
             this.Controls.Add(this.A2);
             this.Controls.Add(this.A1);
             this.Controls.Add(this.menuStrip1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.MaximumSize = new System.Drawing.Size(264, 340);
             this.MinimumSize = new System.Drawing.Size(264, 340);
             this.Name = "Form1";
-            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Kółko i Krzyżyk";
             this.Load += new System.EventHandler(this.Form1_Load);
