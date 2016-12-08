@@ -27,8 +27,8 @@ namespace kolkokrzyzyk
             gracz1 = g1;
             gracz2 = g2;
         }
-        private void Form1_Load(object sender, EventArgs e)
-        {
+        private void Form1_Load(object sender, EventArgs e) // wywołanie okna wybierającego tryb rozgrywki
+        {                                                   // oraz imiona graczy
             Form f2 = new Form2();
             f2.ShowDialog();
             winX.Text = gracz1;
@@ -36,7 +36,7 @@ namespace kolkokrzyzyk
 
         }
 
-        private void oAplikacjiToolStripMenuItem_Click(object sender, EventArgs e)
+        private void oAplikacjiToolStripMenuItem_Click(object sender, EventArgs e)  // opcja "O grze" w zakładce "Pomoc"
         {
             MessageBox.Show("By Joanna Łukasiak & Piotr Kuśmierczyk", "O aplikacji");
         }
