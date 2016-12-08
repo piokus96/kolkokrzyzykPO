@@ -44,7 +44,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(166, 23);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Imie gracza 2:";
+            this.label1.Text = "Imię gracza 2:";
             this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // label2
@@ -55,7 +55,7 @@
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(166, 23);
             this.label2.TabIndex = 2;
-            this.label2.Text = "Imie gracza 1:";
+            this.label2.Text = "Imię gracza 1:";
             // 
             // g1
             // 

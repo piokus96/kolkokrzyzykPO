@@ -17,12 +17,12 @@ namespace kolkokrzyzyk
         public static bool nakomputer = false;
         static String gracz1, gracz2;
 
-        public Form1()
+        public Form1()  // inicjacja formy pierwszej
         {
             InitializeComponent();
         }
 
-        public static void podajImieGracza(string g1, string g2)
+        public static void podajImieGracza(string g1, string g2) // przypisanie nazw graczom
         {
             gracz1 = g1;
             gracz2 = g2;
