@@ -36,62 +36,65 @@ namespace kolkokrzyzyk
 
         }
 
-        private void oAplikacjiToolStripMenuItem_Click(object sender, EventArgs e)  // opcja "O grze" w zakładce "Pomoc"
+        private void oAplikacjiToolStripMenuItem_Click(object sender, EventArgs e)  // opcja "O aplikacji" w zakładce "Pomoc"
         {
             MessageBox.Show("By Joanna Łukasiak & Piotr Kuśmierczyk", "O aplikacji");
         }
 
-        private void wyjdźToolStripMenuItem_Click(object sender, EventArgs e)
+        private void wyjdźToolStripMenuItem_Click(object sender, EventArgs e) // opcja "Wyjdź w zakładce "Plik"
         {
             Application.Exit();
         }
 
-        private void button_click(object sender, EventArgs e)
-        {
+        private void button_click(object sender, EventArgs e)  
+        {                                                     
             Button b = (Button)sender;
-            if (ruch)
-                b.Text = "X";
+            if (ruch)                   // tworzenie zmiennej "ruch" która decyduje czy ruch jest X lub O;
+            b.Text = "X";
             else
-                b.Text = "O";
+                b.Text = "O";   
 
             ruch = !ruch;
-            b.Enabled = false;
-            zliczRuchy++;
-            wygrana();
+            b.Enabled = false;          // jednorazowa możliwość wciśnięcia przycisku na planszy
+            zliczRuchy++;               // zliczanie ruchów
+            wygrana();                  // użycie funkcji , która sprawdza czy warunek wygranej został spełniony
 
 
-            if ((!ruch) && nakomputer)
+            if ((!ruch) && nakomputer)      
             {
-                komputerruch();
-            }
+                komputerruch();         // jeżeli wybraliśmy opcję "Gra przeciw SI" w pierwszym oknie, 
+            }                           // inicjowana jest funkcja zawierająca podstawowe zasady działania komputerowego przeciwnika
         }
         private void komputerruch()
         {
-            Button ruch = null;
-            ruch = szukajlubblokuj("O");
+            Button ruch = null;                 // przypisanie komputerowi znaku "O" ;; kolejne etapy algorytmu SI
+            ruch = szukajlubblokuj("O");        // szukanie potrójnego O, dążenie do wygranej
             if (ruch == null)
             {
-                ruch = szukajlubblokuj("X");
+                ruch = szukajlubblokuj("X");    // blokowanie
                 if (ruch == null)
-                {
-                    ruch = szukajrogu();
+                {                               
+                    ruch = szukajrogu();        // szukanie rogu
                     if (ruch == null)
                     {
-                        ruch = szukajmiejsca();
+                        ruch = szukajmiejsca(); // szukanie jakiegokolwiek miejsca
                     }
                 }
             }
             if (zliczRuchy != 9)
             {
-                ruch.PerformClick();
+                ruch.PerformClick();            // komputer wykonuje ruchy dopóki plansza nie jest pełna
             }
         }
         private Button szukajlubblokuj(string znak)
         {
             Console.WriteLine("Szukam lub blokuję:  " + znak);
-            if ((A1.Text == znak) && (A2.Text == znak) && (A3.Text == ""))
-                return A3;
-            if ((A2.Text == znak) && (A3.Text == znak) && (A1.Text == ""))
+
+            // testy poziome 
+
+            if ((A1.Text == znak) && (A2.Text == znak) && (A3.Text == ""))              // sprawdza poziomo czy w wierszu jest puste miejsce
+                return A3;                                                              // próbuje wygrać, a jeśli mamy 2 znaki "X" we wierszu
+            if ((A2.Text == znak) && (A3.Text == znak) && (A1.Text == ""))              // blokuje
                 return A1;
             if ((A1.Text == znak) && (A3.Text == znak) && (A2.Text == ""))
                 return A2;
@@ -110,12 +113,12 @@ namespace kolkokrzyzyk
             if ((C1.Text == znak) && (C3.Text == znak) && (C2.Text == ""))
                 return C2;
 
-            // testy poziome 
+            // testy pionowe
 
 
-            if ((A1.Text == znak) && (B1.Text == znak) && (C1.Text == ""))
-                return C1;
-            if ((B1.Text == znak) && (C1.Text == znak) && (A1.Text == ""))
+            if ((A1.Text == znak) && (B1.Text == znak) && (C1.Text == ""))          // sprawdza pionowo czy w wierszu jest puste miejsce 
+                return C1;                                                          // próbuje wygrać, a jeśli mamy 2 znaki "X" w kolumnie 
+            if ((B1.Text == znak) && (C1.Text == znak) && (A1.Text == ""))          // blokuje
                 return A1;
             if ((A1.Text == znak) && (C1.Text == znak) && (B1.Text == ""))
                 return B1;
@@ -134,11 +137,11 @@ namespace kolkokrzyzyk
             if ((A3.Text == znak) && (C3.Text == znak) && (B3.Text == ""))
                 return B3;
 
-            // testy pionowe
+            // testy ukośne
 
-            if ((A1.Text == znak) && (B2.Text == znak) && (C3.Text == ""))
-                return C3;
-            if ((B2.Text == znak) && (C3.Text == znak) && (A1.Text == ""))
+            if ((A1.Text == znak) && (B2.Text == znak) && (C3.Text == ""))         // sprawdza poziomo czy po ukosie jest puste miejsce 
+                return C3;                                                         // próbuje wygrać, a jeśli mamy 2 znaki "X"  
+            if ((B2.Text == znak) && (C3.Text == znak) && (A1.Text == ""))         // blokuje
                 return A1;
             if ((A3.Text == znak) && (C1.Text == znak) && (B2.Text == ""))
                 return B2;
@@ -150,12 +153,12 @@ namespace kolkokrzyzyk
             if ((A3.Text == znak) && (C1.Text == znak) && (B2.Text == ""))
                 return B2;
 
-            // testy ukośne
+            
             return null;
         }
         private Button szukajrogu()
         {
-            Console.WriteLine("Szukam rogu...");
+            Console.WriteLine("Szukam rogu...");        
             if (A1.Text == "0")
             {
                 if (A3.Text == "")
@@ -167,7 +170,7 @@ namespace kolkokrzyzyk
             }
             if (A3.Text == "0")
             {
-                if (A1.Text == "")
+                if (A1.Text == "")                  // bazowo komputer szuka miejsca dla siebie w rogu planszy
                     return A1;
                 if (C3.Text == "")
                     return C3;
@@ -198,7 +201,7 @@ namespace kolkokrzyzyk
         {
             Console.WriteLine("Szukam miejsca...");
             Button b = null;
-            foreach (Control c in Controls)
+            foreach (Control c in Controls)         // komputer w ostateczności zajmuje dowolne puste pole
             {
                 b = c as Button;
                 if(b!=null)
@@ -210,7 +213,7 @@ namespace kolkokrzyzyk
             }
             return null;
         }
-        private void wygrana()
+        private void wygrana()    // warunek wygranej
         {
             // sprawdza poziomo
             bool mamyzwyciezce = false;
@@ -237,24 +240,24 @@ namespace kolkokrzyzyk
                 mamyzwyciezce = true;
 
 
-            if (mamyzwyciezce == true)
+            if (mamyzwyciezce == true)     
             {
-                wylaczGuzik();
-                String winner = "";
+                wylaczGuzik();         // wyłączanie przycisku po wygranej
+                String winner = "";         // tworzenie zmiennej przechowującej imie zwycięzcy
                 if (ruch == true)
                 {
                     winner = gracz2;
-                    O_licznik.Text = (int.Parse(O_licznik.Text) + 1).ToString();
+                    O_licznik.Text = (int.Parse(O_licznik.Text) + 1).ToString();        // zwiekszenie licznika po zwycięstwie gracz2
                 }
                 else
                 {
                     winner = gracz1;
-                    X_licznik.Text = (int.Parse(X_licznik.Text) + 1).ToString();
+                    X_licznik.Text = (int.Parse(X_licznik.Text) + 1).ToString();        // zwiekszenie licznika po zwycięstwie gracz 1
                 } 
-                MessageBox.Show("Wygrywa " + winner, "Gratulacje!");
+                MessageBox.Show("Wygrywa " + winner, "Gratulacje!");  // komunikat po wygranej
 
-                // nowa gra
-                ruch = true;
+                
+                ruch = true;            // zawartość funkcji nowaGraToolStripMenuItem_Click() , resetuje plansze po zwycięstwie
                 zliczRuchy = 0;
 
                 foreach (Control c in Controls)
@@ -275,9 +278,9 @@ namespace kolkokrzyzyk
                 if (zliczRuchy == 9)
                 {
                     MessageBox.Show("REMIS!", "Remis");
-                    remis_licznik.Text = (int.Parse(remis_licznik.Text) + 1).ToString();
+                    remis_licznik.Text = (int.Parse(remis_licznik.Text) + 1).ToString();        // zwiększa licznik remisów przy zapełnionej pełnej planszy
 
-                    ruch = true;
+                    ruch = true;                // zawartość funkcji nowaGraToolStripMenuItem_Click() , resetuje plansze po remisie
                     zliczRuchy = 0;
 
                     foreach (Control c in Controls)
@@ -293,7 +296,7 @@ namespace kolkokrzyzyk
                 }
             }
         }
-        private void wylaczGuzik()
+        private void wylaczGuzik()          // funkcja wyłącza przycisk po jego użyciu
         {
             try
             {
@@ -308,23 +311,23 @@ namespace kolkokrzyzyk
 
         public void nowaGraToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ruch = true;
-            zliczRuchy = 0;
+            ruch = true;            // oddaje kontrolę pierwszemu graczowi (X)
+            zliczRuchy = 0;         // resetuje licznik ruchów
 
-                foreach (Control c in Controls)
+                foreach (Control c in Controls)          
                 {
                     try
                     {
                         Button b = (Button)c;
-                        b.Enabled = true;
-                        b.Text = "";
+                        b.Enabled = true;           // uaktywnia przyciski   
+                        b.Text = "";                // i usuwa umieszczone na nich znaki
                     }
                     catch { }
                 }
         }
 
-        private void button_enter(object sender, EventArgs e)
-        {
+        private void button_enter(object sender, EventArgs e)       // pokazuje na najechaniu myszą na pole,
+        {                                                           // znak gracza którego jest teraz kolej
             Button b = (Button)sender;
             if (b.Enabled)
             {
@@ -339,8 +342,8 @@ namespace kolkokrzyzyk
                 }
             }
         }
-        private void button_leave(object sender, EventArgs e)
-        {
+        private void button_leave(object sender, EventArgs e)      // gdy "zdejmiemy" kursor z przycisku 
+        {                                                          // znak znika
             Button b = (Button)sender;
             if(b.Enabled)
             {
@@ -358,8 +361,8 @@ namespace kolkokrzyzyk
 
         }
 
-        private void resetLicznikówToolStripMenuItem_Click(object sender, EventArgs e)
-        {
+        private void resetLicznikówToolStripMenuItem_Click(object sender, EventArgs e)      // opcja "Reset Liczników" w zakładce "Plik"
+        {                                                                                   // zeruje liczniki
             O_licznik.Text = "0";
             X_licznik.Text = "0";
             remis_licznik.Text = "0";
