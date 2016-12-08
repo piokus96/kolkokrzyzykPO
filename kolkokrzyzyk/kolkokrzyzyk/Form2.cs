@@ -42,8 +42,13 @@ namespace kolkokrzyzyk
 
         private void button1_Click(object sender, EventArgs e)      // przypisuje graczom podane imiona i zamyka pierwsze okno
         {
-            Form1.podajImieGracza(g1.Text,g2.Text);
-            this.Close();
+            if (g1.Text != "" && g2.Text != "")
+            {
+                Form1.podajImieGracza(g1.Text, g2.Text);
+                this.Close();
+            }
+            else
+                MessageBox.Show("Należy podać oba imiona lub zagrać przeciw SI!", "Błąd");
         }
 
         private void g2_KeyPress(object sender, KeyPressEventArgs e)    // pozwala po wpisaniu imienia drugiego gracza zatwierdzić
