@@ -1,6 +1,8 @@
 # kolkokrzyzykPO
 Projekt zaliczeniowy , gra " Kółko i Krzyżyk", na programowanie obiektowe C# Joanna Łukasiak i Piotr Kuśmierczyk
 
+University project, Circle and Cross game for Object Programming subject in C#.
+
 Wymagania:
 .Net Framework 4
 
